@@ -15,7 +15,7 @@ An AI-assisted independent Business Systems Analyst practice case using fictiona
    python test_project.py
 
 The scripts use only the Python standard library. They rebuild the SQLite database, CSV reports, dashboard, metrics, and test results from the included CSV sources. Existing generated outputs are overwritten. No network access is required.
-
+![Project Preview](image.png)
 ## Package contents
 
 | File | Purpose |
