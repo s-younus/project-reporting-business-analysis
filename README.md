@@ -42,6 +42,3 @@ The scripts use only the Python standard library. They rebuild the SQLite databa
 
 As of November 17, 2026: CAD 70,000 total budget; CAD 55,000 eligible spending; two over-budget projects; two overdue projects. Seven of thirteen expense rows are accepted. Six are excluded for review. These are dataset results, not business improvements.
 
-## Honest portfolio use
-
-Review, run, and modify the package before presenting it as your own practical work. State that AI helped generate the starter documentation and code. Describe the decisions and validation you personally completed. Do not describe this as Kartec work or claim a production deployment, real approvals, measured time savings, or commercial results.
