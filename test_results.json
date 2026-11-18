@@ -1,0 +1,87 @@
+[
+  {
+    "id": "T01",
+    "check": "P001 actual equals CAD 12000",
+    "result": "PASS"
+  },
+  {
+    "id": "T02",
+    "check": "P001 variance equals CAD 2000",
+    "result": "PASS"
+  },
+  {
+    "id": "T03",
+    "check": "Over budget project count is 2",
+    "result": "PASS"
+  },
+  {
+    "id": "T04",
+    "check": "Overdue project count is 2",
+    "result": "PASS"
+  },
+  {
+    "id": "T05",
+    "check": "Due today is not overdue",
+    "result": "PASS"
+  },
+  {
+    "id": "T06",
+    "check": "Completed project is not overdue",
+    "result": "PASS"
+  },
+  {
+    "id": "T07",
+    "check": "Zero expense project is retained",
+    "result": "PASS"
+  },
+  {
+    "id": "T08",
+    "check": "Exactly at budget is not over budget",
+    "result": "PASS"
+  },
+  {
+    "id": "T09",
+    "check": "Total actual is CAD 55000",
+    "result": "PASS"
+  },
+  {
+    "id": "T10",
+    "check": "Raw rows reconcile to accepted and excluded",
+    "result": "PASS"
+  },
+  {
+    "id": "T11",
+    "check": "Duplicate expense ID quarantined",
+    "result": "PASS"
+  },
+  {
+    "id": "T12",
+    "check": "Missing project ID quarantined",
+    "result": "PASS"
+  },
+  {
+    "id": "T13",
+    "check": "Unknown project ID quarantined",
+    "result": "PASS"
+  },
+  {
+    "id": "T14",
+    "check": "Nonpositive amount quarantined",
+    "result": "PASS"
+  },
+  {
+    "id": "T15",
+    "check": "Not approved quarantined",
+    "result": "PASS"
+  },
+  {
+    "id": "T16",
+    "check": "After reporting date quarantined",
+    "result": "PASS"
+  },
+  {
+    "id": "T17",
+    "check": "All six master projects retained",
+    "result": "PASS"
+  }
+]

@@ -1,0 +1,8 @@
+ID,Story,Action,Expected result,Status,Actual result
+U01,US05,Select Aisha Khan,"P001 and P003; budget CAD 25000; actual CAD 26000; 1 over budget; 1 overdue",Not run,
+U02,US05,Keep Aisha Khan selected and choose Over budget,"Only P001; budget CAD 10000; actual CAD 12000",Not run,
+U03,US05,Click Reset filters,"6 projects; budget CAD 70000; actual CAD 55000; 2 over budget; 2 overdue",Not run,
+U04,US05,Select David Chen and Overdue,"No projects match; all cards zero",Not run,
+U05,US04,Check header and quality summary,"Reporting date 2026-11-17; 13 source rows; 7 accepted; 6 excluded",Not run,
+U06,US05,Use keyboard to navigate filters and reset,"Controls can be reached and changed using keyboard",Not run,
+U07,US01,Open dashboard in a narrow browser window,"Cards rearrange and table can be scrolled horizontally",Not run,

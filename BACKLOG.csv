@@ -1,0 +1,7 @@
+Issue Type,Summary,Description,Priority,Status,Dependency
+Story,US01 View project spending,"BR01; FR01 FR02; acceptance criteria in CASE_STUDY.md",High,Implemented in starter,US04
+Story,US02 Identify overspending,"BR01 BR02; FR03 FR04; acceptance criteria in CASE_STUDY.md",High,Implemented in starter,US01
+Story,US03 Identify overdue work,"BR02; FR05; acceptance criteria in CASE_STUDY.md",High,Implemented in starter,US01
+Story,US04 Review excluded expenses,"BR03 BR05; FR06 FR08; acceptance criteria in CASE_STUDY.md",High,Implemented in starter,Source data and business rules
+Story,US05 Filter the report,"BR04; FR07; manual UAT remains to be performed by learner",Medium,Awaiting manual UAT,US01 US02 US03
+Task,Extend project ID filtering,"Learner extension; write criteria before implementing",Low,To do,US05

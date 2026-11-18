@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project reporting dashboard</title>
+<style>
+body{margin:0;background:#f3f6fb;color:#172b40;font:16px system-ui,sans-serif}main{max-width:1150px;margin:auto;padding:36px 24px}h1{font-size:34px;margin-bottom:8px}p{line-height:1.6}.eyebrow{color:#315d8c;font-weight:700;font-size:13px;letter-spacing:1px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}.card{background:white;border:1px solid #dce3ed;border-radius:12px;padding:20px}.value{font-size:28px;font-weight:750;margin-top:8px}label,button,select{font:inherit}select,button{padding:10px;border:1px solid #a8b8ca;border-radius:6px;background:white;margin:6px 12px 12px 0}button{cursor:pointer}table{width:100%;border-collapse:collapse;background:white}th,td{text-align:left;padding:14px 12px;border-bottom:1px solid #e0e6ef;font-size:14px}th{background:#e6edf6}.scroll{overflow:auto;border:1px solid #dce3ed;border-radius:10px}.flag{color:#a12d18;font-weight:700}.muted{color:#526679}footer{margin-top:24px;font-size:13px;color:#526679}@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}main{padding:20px 14px}h1{font-size:27px}}
+</style>
+<main><div class="eyebrow">INDEPENDENT PRACTICE PROJECT · SYNTHETIC DATA</div><h1>Project reporting dashboard</h1>
+<p class="muted">Budget and approved spending in CAD · Reporting date <span id="date"></span></p>
+<label for="manager">Project manager</label><select id="manager"><option value="">All managers</option></select>
+<label for="attention">Project view</label><select id="attention"><option value="">All projects</option><option value="budget">Over budget</option><option value="late">Overdue</option></select>
+<button id="reset">Reset filters</button>
+<div class="cards" id="cards"></div>
+<p id="count" aria-live="polite"></p>
+<div class="scroll"><table><thead><tr><th scope="col">Project</th><th scope="col">Manager</th><th scope="col">Budget</th><th scope="col">Actual</th><th scope="col">Variance</th><th scope="col">Attention</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p id="quality"></p><footer>Actual spending includes approved, valid expenses dated on or before the reporting date. Positive variance means over budget. Overdue means due before the reporting date and not completed by that date. All cards follow the selected filters. Data quality counts cover the entire source file. No live connections or production deployment.</footer></main>
+<script>
+const data=__PROJECT_DATA__, metrics=__METRICS__;
+const money=n=>new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0}).format(n/100);
+const manager=document.getElementById('manager'),attention=document.getElementById('attention');
+for(const name of [...new Set(data.map(r=>r.manager))]){const o=document.createElement('option');o.value=name;o.textContent=name;manager.append(o)}
+document.getElementById('date').textContent=metrics.as_of;
+document.getElementById('quality').textContent='Data quality: '+metrics.raw_expense_rows+' source expense rows · '+metrics.accepted_rows+' accepted · '+metrics.excluded_rows+' excluded for review. See output/data_quality_issues.csv.';
+function render(){
+ const shown=data.filter(r=>(!manager.value||r.manager===manager.value)&&(!attention.value||(attention.value==='budget'?r.over_budget:r.overdue)));
+ const cards=[['Budget',money(shown.reduce((a,r)=>a+r.budget_cents,0))],['Actual spending',money(shown.reduce((a,r)=>a+r.actual_cents,0))],['Over budget',shown.filter(r=>r.over_budget).length],['Overdue',shown.filter(r=>r.overdue).length]];
+ document.getElementById('cards').replaceChildren(...cards.map(([label,value])=>{const div=document.createElement('div');div.className='card';const l=document.createElement('div');l.textContent=label;const v=document.createElement('div');v.className='value';v.textContent=value;div.append(l,v);return div}));
+ document.getElementById('count').textContent=shown.length+' projects shown';
+ document.getElementById('rows').replaceChildren(...shown.map(r=>{const tr=document.createElement('tr');for(const value of [r.project_id+' · '+r.project_name,r.manager,money(r.budget_cents),money(r.actual_cents),money(r.variance_cents),[r.over_budget?'Over budget':'',r.overdue?'Overdue':''].filter(Boolean).join(' / ')||'None']){const td=document.createElement('td');td.textContent=value;tr.append(td)}return tr}));
+ if(!shown.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=6;td.textContent='No projects match these filters.';tr.append(td);document.getElementById('rows').append(tr)}
+}
+manager.addEventListener('change',render);attention.addEventListener('change',render);document.getElementById('reset').addEventListener('click',()=>{manager.value='';attention.value='';render()});render();
+</script></html>

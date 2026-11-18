@@ -1,0 +1,7 @@
+expense_id,project_id,amount_cents,expense_date,status,reason
+E002,P001,500000,2026-11-10,Approved,Duplicate expense ID
+E008,,90000,2026-11-02,Approved,Missing project ID
+E009,P999,110000,2026-11-03,Approved,Unknown project ID
+E010,P002,-5000,2026-11-04,Approved,Nonpositive amount
+E011,P002,100000,2026-11-05,Pending,Not approved
+E012,P001,300000,2026-11-18,Approved,After reporting date

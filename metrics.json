@@ -1,0 +1,10 @@
+{
+  "as_of": "2026-11-17",
+  "raw_expense_rows": 13,
+  "accepted_rows": 7,
+  "excluded_rows": 6,
+  "budget_cents": 7000000,
+  "actual_cents": 5500000,
+  "over_budget_projects": 2,
+  "overdue_projects": 2
+}

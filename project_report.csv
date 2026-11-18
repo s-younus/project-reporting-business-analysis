@@ -1,0 +1,7 @@
+project_id,project_name,manager,budget_cents,actual_cents,variance_cents,over_budget,due_date,status,overdue
+P001,Office electrical upgrade,Aisha Khan,1000000,1200000,200000,1,2026-11-10,In Progress,1
+P002,Warehouse ventilation,David Chen,2000000,800000,-1200000,0,2026-12-15,In Progress,0
+P003,Hotel lighting retrofit,Aisha Khan,1500000,1400000,-100000,0,2026-10-31,Completed,0
+P004,Clinic network rooms,David Chen,800000,800000,0,0,2026-11-17,In Progress,0
+P005,Workshop power distribution,Leena Shah,1200000,1300000,100000,1,2026-11-01,In Progress,1
+P006,Building controls survey,Leena Shah,500000,0,-500000,0,2026-12-01,Not Started,0
